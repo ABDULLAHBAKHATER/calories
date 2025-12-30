@@ -1,17 +1,17 @@
 
 # Makine Öğrenmesi'ile Kalori yakımı Tahmini Projesi
-# ==============================
+
+
+
 # Kütüphaneler Yükleme
 import streamlit as st
 import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import confusion_matrix, accuracy_score
-
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
@@ -38,8 +38,11 @@ st.subheader("📊 Veri Seti (İlk 5 Satır)")
 st.dataframe(data.head())
 
 
+
 # Ön İşleme
-# ------------------------------
+
+
+
 # Gender sütununu sayısala çevirme
 data.replace({"Gender": {"male": 0, "female": 1}}, inplace=True)
 
