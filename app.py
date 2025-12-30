@@ -78,11 +78,11 @@ st.subheader("🧠 Makine Öğrenmesi Algoritması Seç")
 model_choice = st.selectbox(
     "Bir model seçiniz:",
     (
-        "Decision Tree",
+        "Karar Ağacı",
         "KNN",
         "SVM",
         "Naive Bayes",
-        "Logistic Regression"
+        "Lojistik Regresyon"
     )
 )
 
@@ -91,7 +91,7 @@ model_choice = st.selectbox(
 # ------------------------------
 if st.button("🚀 Modeli Eğit ve Test Et"):
 
-    if model_choice == "Decision Tree":
+    if model_choice == "Karar Ağacı":
         model = DecisionTreeClassifier(random_state=42)
 
     elif model_choice == "KNN":
@@ -103,7 +103,7 @@ if st.button("🚀 Modeli Eğit ve Test Et"):
     elif model_choice == "Naive Bayes":
         model = GaussianNB()
 
-    elif model_choice == "Logistic Regression":
+    elif model_choice == "Lojistik Regresyon":
         model = LogisticRegression(max_iter=1000)
 
     # Model eğitimi
