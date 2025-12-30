@@ -22,7 +22,6 @@ from sklearn.linear_model import LogisticRegression
 # Sayfa Başlığı
 # ------------------------------
 st.title("🏃‍♂️ Egzersiz Verilerine Göre Kalori Seviyesi Tahmini")
-st.write("Bu uygulama Streamlit kullanılarak geliştirilmiştir.")
 
 # ------------------------------
 # Veri Setini Yükleme
@@ -43,7 +42,7 @@ st.dataframe(data.head())
 # Ön İşleme
 # ------------------------------
 # Gender sütununu sayısala çevirme
-data.replace({"Gender": {"male": 0, "female": 1}}, inplace=True)
+data.replace({"Cinsiyet": {"erkek": 0, "kadın": 1}}, inplace=True)
 
 # Kalori seviyesini sınıflara ayırma
 def calorie_level(cal):
@@ -57,8 +56,8 @@ def calorie_level(cal):
 data["Calories_Level"] = data["Calories"].apply(calorie_level)
 
 # Girdi ve çıktı
-X = data.drop(columns=["User_ID", "Calories", "Calories_Level"])
-y = data["Calories_Level"]
+X = data.drop(columns=["Kullanıcı_Kimliği", "Kalori", "Kalori_Seviyesi"])
+y = data["Kalori_Seviyesi"]
 
 # Eğitim / Test bölme
 X_train, X_test, y_train, y_test = train_test_split(
@@ -82,7 +81,7 @@ model_choice = st.selectbox(
         "KNN",
         "SVM",
         "Naive Bayes",
-        "Lojistik Regresyon"
+        "Lojistik Regresyonu"
     )
 )
 
@@ -103,7 +102,7 @@ if st.button("🚀 Modeli Eğit ve Test Et"):
     elif model_choice == "Naive Bayes":
         model = GaussianNB()
 
-    elif model_choice == "Lojistik Regresyon":
+    elif model_choice == "Lojistik Regresyonu":
         model = LogisticRegression(max_iter=1000)
 
     # Model eğitimi
