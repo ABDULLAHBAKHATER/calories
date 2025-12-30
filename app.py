@@ -1,7 +1,7 @@
-# ==============================
-# Streamlit Makine Öğrenmesi Projesi
-# ==============================
 
+# Makine Öğrenmesi'ile Kalori yakımı Tahmini Projesi
+# ==============================
+# Kütüphaneler Yükleme
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -18,15 +18,13 @@ from sklearn.svm import SVC
 from sklearn.naive_bayes import GaussianNB
 from sklearn.linear_model import LogisticRegression
 
-# ------------------------------
-# Sayfa Başlığı
-# ------------------------------
-st.title("🏃‍♂️ Egzersiz Verilerine Göre Kalori Seviyesi Tahmini")
-st.write("Bu uygulama Streamlit kullanılarak geliştirilmiştir.")
 
-# ------------------------------
+# Sayfa Başlığı
+
+st.title("🏃‍♂️ Egzersiz Verilerine Göre Kalori Seviyesi Tahmini")
+
+
 # Veri Setini Yükleme
-# ------------------------------
 @st.cache_data
 def load_data():
     calories = pd.read_csv("calories.csv")
@@ -39,7 +37,7 @@ data = load_data()
 st.subheader("📊 Veri Seti (İlk 5 Satır)")
 st.dataframe(data.head())
 
-# ------------------------------
+
 # Ön İşleme
 # ------------------------------
 # Gender sütununu sayısala çevirme
@@ -70,9 +68,9 @@ scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
-# ------------------------------
+
 # Model Seçimi
-# ------------------------------
+
 st.subheader("🧠 Makine Öğrenmesi Algoritması Seç")
 
 model_choice = st.selectbox(
@@ -86,9 +84,9 @@ model_choice = st.selectbox(
     )
 )
 
-# ------------------------------
+
 # Modeli Çalıştırma
-# ------------------------------
+
 if st.button("🚀 Modeli Eğit ve Test Et"):
 
     if model_choice == "Karar Ağacı":
@@ -130,9 +128,9 @@ if st.button("🚀 Modeli Eğit ve Test Et"):
 
     st.pyplot(fig)
 
-# ------------------------------
+
 # Açıklama
-# ------------------------------
+
 st.markdown("""
 ### ℹ️ Açıklama
 - **0:** Düşük Kalori  
