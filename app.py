@@ -129,7 +129,7 @@ if st.button("🚀 Modeli Eğit ve Test Et"):
     st.pyplot(fig)
 
 
-# Açıklama
+# Açıklama yazı
 
 st.markdown("""
 ### ℹ️ Açıklama
