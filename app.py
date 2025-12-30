@@ -42,7 +42,7 @@ st.dataframe(data.head())
 # Ön İşleme
 # ------------------------------
 # Gender sütununu sayısala çevirme
-data.replace({"Cinsiyet": {"erkek": 0, "kadın": 1}}, inplace=True)
+data.replace({"Cinsiyet": {"male": 0, "female": 1}}, inplace=True)
 
 # Kalori seviyesini sınıflara ayırma
 def calorie_level(cal):
